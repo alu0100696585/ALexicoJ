@@ -1,0 +1,30 @@
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <title>CSV Analyzer</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      function dump(fileName) {
+          $.get(fileName, function (data) {
+              $("#original").val(data);
+          });
+      };
+    </script>     
+    
+    <div id="header" class="header">
+      <h1 >How to load a file into a texarea</h1>
+      <div style="width:70%;margin:auto;">  
+          <textarea autofocus cols = "80" rows = "5" id="original"></textarea>
+      </div>
+      <br />
+      <div style="display:inline">
+        <button id ="input2" type="button" onclick="dump('input2.txt');">input2</button>
+        <button id ="input"  type="button" onclick="dump('input.txt');">input</button>
+        <button id ="hello"  type="button" onclick="dump('hello.txt');">hello</button>
+      </div>
+    </div>    
+  </body>
+
+</html>

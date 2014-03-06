@@ -1,9 +1,11 @@
+/*
 Object.prototype.error = function (message, t) {
     t = t || this;
     t.name = "SyntaxError";
     t.message = message;
     throw t;
 };
+*/
 
 function main() {
     var parse = make_parse();

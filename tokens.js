@@ -33,7 +33,7 @@ String.prototype.tokens = function () {
     var ONELINECOMMENT      = /[/][/].*/g;
     var MULTIPLELINECOMMENT = /[/][*](.|\n)*?[*][/]/g;
     var TWOCHAROPERATORS    = /(===|!==|[+][+=]|-[-=]|[=<>][=<>]|&&|[|][|])/g;
-    var ONECHAROPERATORS    = /([-+*\/=()&|;:,<>{}[\]])/g;
+    var ONECHAROPERATORS    = /([-+*\/=()&|%;:,<>{}[\]])/g;
 
     // Objeto tipo token
     var make = function (type, value) {
@@ -45,6 +45,7 @@ String.prototype.tokens = function () {
         };
     };
 
+    //Avanza el last index hasta la siguiente pocision de captura.
     var getTok = function() {
       var str = m[0];
       i += str.length; // Warning! Efecto lateral en i

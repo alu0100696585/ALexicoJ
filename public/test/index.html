@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mocha.css" />
+    <script src="../tokens.js"></script>
+    <script src="../main.js"></script>
+    <script src="../parse.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <script>
+      function  dump_ajax(fileName) {
+          $.ajax({
+            url : fileName,
+            dataType: "text",
+            success : function (data) {
+                $("#INPUT").val(data);
+                Prueba.value = data;
+            }
+        });
+      }
+      function dump_get(fileName) {
+          $.get(fileName, function (data) {
+              $("#INPUT").val(data);
+          });
+      };
+    </script> 
+    
+    <div id="header" class="header">
+      <h1 >How to load a file into a texarea</h1>
+      <div style="width:70%;margin:auto;">  
+          <textarea autofocus cols = "80" rows = "5" id="INPUT"></textarea>
+      </div>
+      <br />
+      <Test id="Prueba"><Test>
+      <div style="display:inline">
+        <button id ="input2" type="button" onclick="dump_ajax('../input2.txt');">input con ajax</button>
+        <button id ="input3"  type="button" onclick="dump_get('../input.txt');">input con get</button>
+        <input id="PARSE" value=parse type=button>
+      </div>
+      <pre id="OUTPUT"></pre>
+    </div> 
+    
+    <div id="mocha"></div>
+    <script src="chai.js"></script>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('tdd')</script>
+    <script src="tests.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
